@@ -14,16 +14,17 @@ function Characters({ characters }) {
             {characters.map((character) => {
               const { name, description, id, thumbnail } = character;
 
-              if (description) {
-                return (
-                  <Character
-                    key={id}
-                    thumbnail={thumbnail}
-                    name={name}
-                    description={description}
-                  />
-                );
-              }
+              return (
+                <Character
+                  key={id}
+                  thumbnail={thumbnail}
+                  name={name}
+                  description={
+                    description ||
+                    "This character doesn't have a description yet."
+                  }
+                />
+              );
             })}
           </ul>
         </div>

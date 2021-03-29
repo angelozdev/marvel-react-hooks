@@ -38,7 +38,7 @@ a {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .character__item {
@@ -53,7 +53,7 @@ a {
   box-shadow: inset 6px 6px 12px #dbdbdb, inset -6px -6px 12px #ffffff;
 } */
 
-.character__content figure {
+/* .character__content figure {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -70,7 +70,7 @@ a {
   right: 0;
   left: 0;
   object-fit: cover;
-}
+} */
 
 .character__body {
   padding: 1rem;
