@@ -1,13 +1,15 @@
 :root {
-  --color-black: #1a1a1a;
-  --color-white: #ffffff;
+  --color-black: #31344b;
+  --color-white: #e6e7ee;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 a {
@@ -36,29 +38,27 @@ a {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .character__item {
-  border: 1px solid var(--color-black);
-  box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.1);
-  transition: 300ms all ease-out;
+  transition: 300ms all ease;
+  background: var(--color-white);
+  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
-.character__item:hover {
-  box-shadow: 0.5rem 0.5rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
-}
-
-.character__content {
-  /* padding: 1rem; */
-}
+/* .character__item:hover {
+  box-shadow: inset 6px 6px 12px #dbdbdb, inset -6px -6px 12px #ffffff;
+} */
 
 .character__content figure {
   width: 100%;
   padding: 0;
   margin: 0;
   position: relative;
-  padding-bottom: 100%;
+  padding-bottom: 70%;
 }
 
 .character__content figure img {

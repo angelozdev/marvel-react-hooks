@@ -18,7 +18,7 @@ function Character({
     <li className="character__item">
       <div className="character__content">
         <figure>
-          <img src={`${path}.${extension}`} alt="" />
+          <img src={`${path}.${extension}`} alt={`${name} image`} />
         </figure>
 
         <div className="character__body">
