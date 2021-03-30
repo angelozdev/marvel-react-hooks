@@ -17,7 +17,9 @@ function Character({
   description,
   thumbnail: { extension, path },
 }: Props) {
-  console.log(path);
+  React.useEffect(() => {
+    console.log("CHARACTER RENDER", name);
+  });
 
   return (
     <li className="character__item transition-300">
@@ -39,4 +41,4 @@ function Character({
   );
 }
 
-export default Character;
+export default React.memo(Character);

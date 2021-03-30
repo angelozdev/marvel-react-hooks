@@ -4,12 +4,16 @@ import * as React from "react";
 import { darkModeContext } from "context";
 
 function Header() {
-  const { darkMode, setDarkMode } = React.useContext(darkModeContext);
+  const { darkMode, changeTheme } = React.useContext(darkModeContext);
 
   // helper methods
   const handleClick = () => {
-    setDarkMode((value) => !value);
+    changeTheme();
   };
+
+  React.useEffect(() => {
+    console.log("HEADER RENDER");
+  });
 
   return (
     <header className="header__container">

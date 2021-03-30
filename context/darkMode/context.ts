@@ -3,7 +3,7 @@ import * as React from "react";
 /* Local types */
 interface Context {
   darkMode: boolean;
-  setDarkMode?: React.Dispatch<React.SetStateAction<boolean>>;
+  changeTheme?: () => void;
 }
 
 export const darkModeContext = React.createContext<Context>({

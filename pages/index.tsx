@@ -16,15 +16,14 @@ function Home() {
 
   React.useEffect(() => {
     console.log("RENDER");
-    console.log({ data });
   });
 
   if (status === "LOADING" || !data) {
-    return "Loading...";
+    return <p>"Loading..."</p>;
   }
 
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
