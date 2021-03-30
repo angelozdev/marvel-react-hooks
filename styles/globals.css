@@ -52,6 +52,12 @@ a {
 }
 .header__title {
   margin: 0;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  box-shadow: 6px 6px 12px var(--shadow-black),
+    -6px -6px 12px var(--shadow-white);
 }
 
 .header__content {
@@ -110,6 +116,11 @@ a {
   border: 1px solid var(--border-color);
   border-radius: 0.25rem;
   cursor: pointer;
+}
+
+.button.active {
+  box-shadow: inset 2px 2px 5px var(--shadow-black),
+    inset -3px -3px 7px var(--shadow-white);
 }
 
 /* FILTER */
