@@ -12,8 +12,6 @@ function Characters({ characters }) {
 
   // helper methods
   const handleOnChange = React.useCallback((event: ChangeEvent) => {
-    console.log("CALLBACK");
-
     setFilterValue(event.target.value);
   }, []);
 

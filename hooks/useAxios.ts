@@ -1,5 +1,10 @@
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import * as React from "react";
+
+/* Axios */
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
+
+/* Config */
+import { config } from "config";
 
 /* LOCAL TYPES */
 interface InitialState {
@@ -56,22 +61,22 @@ function useAxios({ url, ...rest }: AxiosRequestConfig) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   React.useEffect(() => {
+    const {
+      env: { marvelApiKey, marvelHash, marvelTs },
+    } = config;
+
     dispatch({
       type: ActionTypes.DATA_REQUEST_LOADING,
     });
-
-    const API_KEY = "bdb565cd22de4bb710fec07331d38795";
-    const TS = "dmtEkhwKDXacI2MCy1iuJlLNHzYjTZRp";
-    const HASH = "b010e74122a7e503a336bea9424af92e";
 
     axios({
       method: "GET",
       baseURL: "https://gateway.marvel.com/v1/public",
       url,
       params: {
-        apikey: API_KEY,
-        ts: TS,
-        hash: HASH,
+        apikey: marvelApiKey,
+        ts: marvelTs,
+        hash: marvelHash,
       },
       ...rest,
     })
