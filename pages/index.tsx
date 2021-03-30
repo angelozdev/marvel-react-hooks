@@ -7,20 +7,14 @@ import Head from "next/head";
 import { Characters, Header } from "components";
 
 /* Hooks */
-import { useAxios } from "hooks";
 import { darkModeContext } from "context";
 
 function Home() {
-  const { data, status } = useAxios({ url: "characters" });
   const { darkMode } = React.useContext(darkModeContext);
 
   React.useEffect(() => {
     console.log("RENDER");
   });
-
-  if (status === "LOADING" || !data) {
-    return <p>"Loading..."</p>;
-  }
 
   return (
     <div className={darkMode ? "dark-mode" : "light-mode"}>
@@ -32,7 +26,7 @@ function Home() {
       <Header />
 
       <main>
-        <Characters characters={data?.results} />
+        <Characters />
       </main>
     </div>
   );

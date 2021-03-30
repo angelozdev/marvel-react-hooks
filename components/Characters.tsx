@@ -3,12 +3,17 @@ import * as React from "react";
 /* Components */
 import { Character, Filter } from "components";
 
+/* Hooks */
+import { useAxios } from "hooks";
+
 /* Local Types */
 type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
-function Characters({ characters }) {
+function Characters() {
   // states
+  const { data, status } = useAxios({ url: "characters" });
   const [filterValue, setFilterValue] = React.useState<string>("");
+  const results = data?.results || [];
 
   // helper methods
   const handleOnChange = React.useCallback((event: ChangeEvent) => {
@@ -16,11 +21,11 @@ function Characters({ characters }) {
   }, []);
 
   const filteredCharacters = React.useMemo(() => {
-    return characters.filter((character) => {
+    return results.filter((character) => {
       if (!filterValue) return true;
       return character.name.toLowerCase().includes(filterValue.toLowerCase());
     });
-  }, [filterValue, characters]);
+  }, [filterValue, results]);
 
   // effects
   React.useEffect(() => {
@@ -31,25 +36,31 @@ function Characters({ characters }) {
     <section className="characters__container">
       <div className="characters__wrapper wrapper">
         <div className="characters__content">
-          <Filter value={filterValue} handleOnChange={handleOnChange} />
+          {status === "LOADING" || !data ? (
+            <span>Loading...</span>
+          ) : (
+            <React.Fragment>
+              <Filter value={filterValue} handleOnChange={handleOnChange} />
 
-          <ul className="characters__grid">
-            {filteredCharacters.map((character) => {
-              const { name, description, id, thumbnail } = character;
+              <ul className="characters__grid">
+                {filteredCharacters.map((character) => {
+                  const { name, description, id, thumbnail } = character;
 
-              return (
-                <Character
-                  key={id}
-                  thumbnail={thumbnail}
-                  name={name}
-                  description={
-                    description ||
-                    "This character doesn't have a description yet."
-                  }
-                />
-              );
-            })}
-          </ul>
+                  return (
+                    <Character
+                      key={id}
+                      thumbnail={thumbnail}
+                      name={name}
+                      description={
+                        description ||
+                        "This character doesn't have a description yet."
+                      }
+                    />
+                  );
+                })}
+              </ul>
+            </React.Fragment>
+          )}
         </div>
       </div>
     </section>
