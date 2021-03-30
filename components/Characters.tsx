@@ -1,10 +1,21 @@
 import * as React from "react";
 
 /* Components */
-import { Character } from "components";
+import { Character, Filter } from "components";
+
+/* Local Types */
+type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 function Characters({ characters }) {
+  // states
   const [filterValue, setFilterValue] = React.useState<string>("");
+
+  // helper methods
+  const handleOnChange = React.useCallback((event: ChangeEvent) => {
+    console.log("CALLBACK");
+
+    setFilterValue(event.target.value);
+  }, []);
 
   const filteredCharacters = React.useMemo(() => {
     return characters.filter((character) => {
@@ -13,6 +24,7 @@ function Characters({ characters }) {
     });
   }, [filterValue, characters]);
 
+  // effects
   React.useEffect(() => {
     console.log("CHARACTERS RENDER");
   });
@@ -23,14 +35,7 @@ function Characters({ characters }) {
         <div className="characters__content">
           <h1 className="characters__title">My Characters</h1>
 
-          <input
-            value={filterValue}
-            onChange={(e) => {
-              setFilterValue(e.target.value);
-            }}
-            type="text"
-            placeholder="filter by name"
-          />
+          <Filter value={filterValue} handleOnChange={handleOnChange} />
 
           <ul className="characters__grid">
             {filteredCharacters.map((character) => {
