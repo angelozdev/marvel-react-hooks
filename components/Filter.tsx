@@ -6,8 +6,14 @@ function Filter({ value, handleOnChange }) {
   });
 
   return (
-    <div>
-      <input type="text" value={value} onChange={handleOnChange} />
+    <div className="filter__container">
+      <input
+        className="input transition-300"
+        type="text"
+        value={value}
+        onChange={handleOnChange}
+        placeholder="Search..."
+      />
     </div>
   );
 }

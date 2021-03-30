@@ -31,8 +31,6 @@ function Characters({ characters }) {
     <section className="characters__container">
       <div className="characters__wrapper wrapper">
         <div className="characters__content">
-          <h1 className="characters__title">My Characters</h1>
-
           <Filter value={filterValue} handleOnChange={handleOnChange} />
 
           <ul className="characters__grid">
