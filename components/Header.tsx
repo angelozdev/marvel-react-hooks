@@ -19,8 +19,7 @@ function Header() {
     <header className="header__container">
       <div className="header__wrapper wrapper">
         <div className="header__content">
-          <h1 className="header__title">React Hooks</h1>
-
+          <h1 className="header__title">Marvel with hooks</h1>
           <button className="button transition-300" onClick={handleClick}>
             {darkMode ? "Light" : "Dark"} Mode
           </button>
