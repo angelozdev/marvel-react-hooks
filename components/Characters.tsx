@@ -6,9 +6,9 @@ import { Character } from "components";
 function Characters({ characters }) {
   return (
     <section className="characters__container">
-      <div className="characters__wrapper">
+      <div className="characters__wrapper wrapper">
         <div className="characters__content">
-          <h1>My Characters</h1>
+          <h1 className="characters__title">My Characters</h1>
 
           <ul className="characters__grid">
             {characters.map((character) => {

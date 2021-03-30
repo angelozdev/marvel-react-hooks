@@ -1,6 +1,15 @@
 :root {
   --color-black: #31344b;
   --color-white: #e6e7ee;
+  --shadow-white: #fff;
+  --shadow-black: #b8b9be;
+}
+
+[class="dark-mode"] {
+  --color-black: #e6e7ee;
+  --color-white: #31344b;
+  --shadow-white: #383c56;
+  --shadow-black: #2a2c40;
 }
 
 html,
@@ -8,8 +17,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
-  background-color: var(--color-white);
-  color: var(--color-black);
 }
 
 a {
@@ -21,16 +28,40 @@ a {
   box-sizing: border-box;
 }
 
-/* SECTIONS */
-.characters__container {
-  background: var(--color-white);
-}
-
-.characters__wrapper {
+.wrapper {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 min(1rem, 2vw);
+}
+
+/* CONTAINERS */
+.characters__container,
+.header__container {
+  background: var(--color-white);
+  color: var(--color-black);
+  transition: 300ms background-color ease-in-out;
+}
+
+/* HEADER */
+
+.header__container {
+  padding: 1rem 0;
+}
+.header__title {
+  margin: 0;
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CHARACTERS */
+
+.characters__title {
+  margin: 0;
 }
 
 .characters__grid {
@@ -42,35 +73,12 @@ a {
 }
 
 .character__item {
-  transition: 300ms all ease;
   background: var(--color-white);
-  box-shadow: 6px 6px 12px #b8b9be, -6px -6px 12px #fff;
+  box-shadow: 6px 6px 12px var(--shadow-black),
+    -6px -6px 12px var(--shadow-white);
   border-radius: 0.5rem;
   overflow: hidden;
 }
-
-/* .character__item:hover {
-  box-shadow: inset 6px 6px 12px #dbdbdb, inset -6px -6px 12px #ffffff;
-} */
-
-/* .character__content figure {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  padding-bottom: 70%;
-}
-
-.character__content figure img {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  object-fit: cover;
-} */
 
 .character__body {
   padding: 1rem;
@@ -78,4 +86,20 @@ a {
 
 .character__title {
   margin-top: 0;
+}
+
+/* GENERALS */
+
+.transition-300 {
+  transition: 300ms all ease-in-out;
+}
+
+.button {
+  color: var(--color-black);
+  box-shadow: 3px 3px 6px var(--shadow-black), -3px -3px 6px var(--shadow-white);
+  padding: 0.5rem 1rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: 0.25rem;
+  cursor: pointer;
 }

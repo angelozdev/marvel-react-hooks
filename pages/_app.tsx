@@ -2,10 +2,14 @@ import * as React from "react";
 
 /* Next */
 import Head from "next/head";
+import type { AppProps } from "next/app";
+
+/* Context */
+import { DarkModeProvider } from "context";
 
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
       <Head>
@@ -15,7 +19,10 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+
+      <DarkModeProvider>
+        <Component {...pageProps} />
+      </DarkModeProvider>
     </React.Fragment>
   );
 }

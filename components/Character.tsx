@@ -20,7 +20,7 @@ function Character({
   console.log(path);
 
   return (
-    <li className="character__item">
+    <li className="character__item transition-300">
       <div className="character__content">
         <Image
           width={300}

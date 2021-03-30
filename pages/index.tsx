@@ -8,9 +8,11 @@ import { Characters, Header } from "components";
 
 /* Hooks */
 import { useAxios } from "hooks";
+import { darkModeContext } from "context";
 
-export default function Home() {
+function Home() {
   const { data, status } = useAxios({ url: "characters" });
+  const { darkMode } = React.useContext(darkModeContext);
 
   React.useEffect(() => {
     console.log("RENDER");
@@ -22,7 +24,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={darkMode ? "dark-mode" : ""}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,3 +38,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
