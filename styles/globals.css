@@ -52,7 +52,7 @@ a {
 }
 .header__title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 0.5rem + 1vw, 2rem);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
@@ -105,7 +105,7 @@ a {
 /* GENERALS */
 
 .transition-300 {
-  transition: 300ms all ease-in-out;
+  transition: 100ms all ease-in-out;
 }
 
 .button {
