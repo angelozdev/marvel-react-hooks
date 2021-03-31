@@ -45,7 +45,7 @@ function Home({ characters }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  return getData({ url: "characters", params: { offset: 10, limit: 10 } })
+  return getData({ url: "characters", params: { offset: 0, limit: 5 } })
     .then(({ results }) => {
       return {
         props: {

@@ -12,11 +12,10 @@ interface Props {
     path: string;
   };
 }
-function Character({
-  name,
-  description,
-  thumbnail: { extension, path },
-}: Props) {
+function Character(props: Props) {
+  const { name, description, thumbnail } = props;
+  const { extension, path } = thumbnail;
+
   React.useEffect(() => {
     console.log("CHARACTER RENDER");
   });
