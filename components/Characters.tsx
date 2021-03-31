@@ -5,6 +5,8 @@ import { Character, Filter } from "components";
 
 /* Types */
 import ICharacter from "types/character";
+
+/* Utils */
 import { getData } from "utils";
 
 /* Local Types */
@@ -78,12 +80,12 @@ function Characters({ characters }: Props) {
 
           <div className="">
             <button
-              disabled={!!isLoading}
+              disabled={isLoading}
               onClick={handleSeeMore}
               type="button"
-              className="button"
+              className={`button ${isLoading ? "active" : ""}`}
             >
-              {isLoading ? "LOADING..." : "MORE"}
+              {isLoading ? "LOADING..." : "SEE MORE"}
             </button>
           </div>
         </div>
