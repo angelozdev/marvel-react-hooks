@@ -18,7 +18,7 @@ function Character({
   thumbnail: { extension, path },
 }: Props) {
   React.useEffect(() => {
-    console.log("CHARACTER RENDER", name);
+    console.log("CHARACTER RENDER");
   });
 
   return (

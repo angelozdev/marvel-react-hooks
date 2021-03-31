@@ -57,7 +57,7 @@ function reducer(state = initialState, action: Action): InitialState {
 }
 
 /* HOOK */
-function useAxios({ url, ...rest }: AxiosRequestConfig) {
+function useAxios({ url, params, ...rest }: AxiosRequestConfig) {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   React.useEffect(() => {
@@ -77,6 +77,7 @@ function useAxios({ url, ...rest }: AxiosRequestConfig) {
         apikey: marvelApiKey,
         ts: marvelTs,
         hash: marvelHash,
+        ...params,
       },
       ...rest,
     })
