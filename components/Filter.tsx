@@ -24,7 +24,9 @@ function Filter() {
     });
   };
 
-  const handleClick = async () => {
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
     setIsLoading(true);
     const { results } = await getData({
       url: "characters",
@@ -43,12 +45,8 @@ function Filter() {
     console.log("FILTER RENDER");
   });
 
-  React.useEffect(() => {
-    console.log(characters);
-  }, [characters]);
-
   return (
-    <div className="filter__container">
+    <form onSubmit={handleSubmit} className="filter__container">
       <input
         className="input transition-300"
         type="text"
@@ -57,13 +55,13 @@ function Filter() {
         placeholder="Search..."
       />
       <button
-        onClick={handleClick}
+        type="submit"
         disabled={!filterValue || isLoading}
         className="button"
       >
         {isLoading ? "LOADING..." : "SEARCH"}
       </button>
-    </div>
+    </form>
   );
 }
 

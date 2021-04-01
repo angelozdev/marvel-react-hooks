@@ -81,7 +81,7 @@ a {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
@@ -171,7 +171,8 @@ a {
 /* FILTER */
 .filter__container {
   margin: 0 auto;
-  width: min(40vh, 100%);
+  width: 100%;
+  max-width: 400px;
   display: flex;
 }
 
@@ -208,6 +209,12 @@ a {
 }
 
 @media screen and (min-width: 786px) {
+  .characters__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .characters__grid {
     grid-template-columns: repeat(3, 1fr);
   }
