@@ -7,16 +7,14 @@ type ChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 function Filter() {
   const [characters, setCharacters] = React.useContext(charactersContext);
-  const [filterValue, setFilterValue] = React.useState("");
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
   // helper methods
   const handleChange = (event: ChangeEvent) => {
     const filterValue = event.target.value || "";
-    setFilterValue(filterValue);
-
     setCharacters({
       ...characters,
+      filterValue,
       filtered: characters.all.filter(({ name }) => {
         if (!filterValue) true;
         return name.toLowerCase().includes(filterValue.toLowerCase());
@@ -30,7 +28,10 @@ function Filter() {
     setIsLoading(true);
     const { results } = await getData({
       url: "characters",
-      params: { limit: 18, nameStartsWith: filterValue },
+      params: {
+        limit: 6,
+        nameStartsWith: characters.filterValue,
+      },
     });
 
     setCharacters({
@@ -50,13 +51,13 @@ function Filter() {
       <input
         className="input transition-300"
         type="text"
-        value={filterValue}
+        value={characters.filterValue}
         onChange={handleChange}
         placeholder="Search..."
       />
       <button
         type="submit"
-        disabled={!filterValue || isLoading}
+        disabled={!characters.filterValue || isLoading}
         className="button"
       >
         {isLoading ? "LOADING..." : "SEARCH"}

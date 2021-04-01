@@ -57,7 +57,7 @@ function Home({ characters: charactersFromServer }: Props) {
         <LayoutCharacters>
           <Filter />
           <Characters />
-          <ButtonAddMore />
+          {!!characters.filtered.length && <ButtonAddMore />}
         </LayoutCharacters>
       </main>
     </div>

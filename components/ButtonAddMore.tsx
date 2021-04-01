@@ -8,17 +8,31 @@ function ButtonAddMore() {
 
   const handleSeeMore = async () => {
     setIsLoading(true);
+
+    const { all, filterValue, filtered } = characters;
+
+    let params = {
+      limit: 6,
+      offset: all.length + 1,
+      nameStartsWith: null,
+    };
+
+    if (filterValue) {
+      params = {
+        ...params,
+        offset: filtered.length + 1,
+        nameStartsWith: filterValue,
+      };
+    }
+
     const { results } = await getData({
       url: "characters",
-      params: {
-        limit: 6,
-        offset: characters.all.length + 1,
-      },
+      params,
     });
 
     setCharacters({
       ...characters,
-      all: [...characters.all, ...results],
+      all: filterValue ? all : [...characters.all, ...results],
       filtered: [...characters.filtered, ...results],
     });
     setIsLoading(false);

@@ -8,6 +8,7 @@ export enum ActionTypes {
 export interface InitialState {
   all: ICharacter[];
   filtered: ICharacter[];
+  filterValue: string;
 }
 
 export type Context = [
