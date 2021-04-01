@@ -2,6 +2,8 @@ import * as React from "react";
 
 /* Components */
 import { Character } from "components";
+
+/* Context */
 import { charactersContext } from "context";
 
 function Characters() {
@@ -17,10 +19,11 @@ function Characters() {
       {filtered.length ? (
         <ul className="characters__grid">
           {filtered.map((character) => {
-            const { name, description, id, thumbnail } = character;
+            const { name, description, id, thumbnail, urls } = character;
 
             return (
               <Character
+                urls={urls}
                 key={id}
                 thumbnail={thumbnail}
                 name={name}

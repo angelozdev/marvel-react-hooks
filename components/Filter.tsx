@@ -20,9 +20,14 @@ function Filter() {
       }),
     });
   };
+
   React.useEffect(() => {
     console.log("FILTER RENDER");
   });
+
+  React.useEffect(() => {
+    console.log(characters);
+  }, [characters]);
 
   return (
     <div className="filter__container">
