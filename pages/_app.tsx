@@ -5,7 +5,7 @@ import Head from "next/head";
 import type { AppProps } from "next/app";
 
 /* Context */
-import { DarkModeProvider } from "context";
+import { DarkModeProvider, CharactersProvider } from "context";
 
 import "../styles/globals.css";
 
@@ -20,9 +20,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
 
-      <DarkModeProvider>
-        <Component {...pageProps} />
-      </DarkModeProvider>
+      <CharactersProvider>
+        <DarkModeProvider>
+          <Component {...pageProps} />
+        </DarkModeProvider>
+      </CharactersProvider>
     </React.Fragment>
   );
 }
