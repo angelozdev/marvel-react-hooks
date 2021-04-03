@@ -25,7 +25,7 @@ function Character(props: Props) {
   });
 
   return (
-    <li className="character__item transition-300">
+    <li className="character__item">
       <div className="character__content">
         <figure>
           <Image

@@ -42,7 +42,6 @@ a {
 .header__container {
   background: var(--color-white);
   color: var(--color-black);
-  transition: 300ms background-color ease-in-out;
 }
 
 /* HEADER */
@@ -139,10 +138,6 @@ a {
 }
 
 /* GENERALS */
-
-.transition-300 {
-  transition: 100ms all ease-in-out;
-}
 
 .button {
   color: var(--color-black);

@@ -49,7 +49,7 @@ function Filter() {
   return (
     <form onSubmit={handleSubmit} className="filter__container">
       <input
-        className="input transition-300"
+        className="input"
         type="text"
         value={characters.filterValue}
         onChange={handleChange}

@@ -19,9 +19,9 @@ function Header() {
     <header className="header__container">
       <div className="header__wrapper wrapper">
         <div className="header__content">
-          <h1 className="header__title transition-300">Marvel Neumorphism</h1>
+          <h1 className="header__title">Marvel Neumorphism</h1>
           <button
-            className={`button transition-300 ${darkMode ? "active" : ""}`}
+            className={`button ${darkMode ? "active" : ""}`}
             onClick={handleClick}
           >
             Dark Mode
